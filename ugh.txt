@@ -1,0 +1,47 @@
+ try
+	{
+		//collect data items from text fields and store these temporarily as variables
+		
+		String lastName=jTextField_LastName.getText();
+		String firstName=jTextField_FirstName.getText();
+		String gender=(String) jComboBox_Gender.getSelectedItem();
+		String ssn=jTextField_SSN.getText();
+		String emplyID=jTextField_EmplyID.getText();
+		
+		String phone=jTextField_Phone.getText();
+		String email=jTextField_Email.getText();
+		Date hireDate=jDateChooser_HireDate.getDate();
+		Date endDate=jDateChooser_EndDate.getDate();
+		
+		//now going to combine data items to create a record. we will separate individual data w/ tab space
+		//to do this, set up the string variable s, then add each of the data items in turn to buid up record
+		String s = lastName + "	";
+		s += firstName + "	";
+		s += gender + "	";
+		s += ssn + "	";
+		s += emplyID + "	";
+		s += phone + "	";
+		s += email + "	";
+		s += hireDate + "	";
+		s += endDate;
+		
+		//final step is to save record on file. add lines of code which will open a file with the name and location we specified earlier, save the record into the file, then close the file
+                try{
+            FileReader fr = new FileReader("E.txt");
+            BufferedReader br = new BufferedReader(fr);
+            
+            String departmentsTextFile;
+            while ((departmentsTextFile = br.readLine()) != null){
+                out.println(departmentsTextFile);
+            }
+            br.close();
+                FileWriter w = new FileWriter("Employees.txt");
+            try (BufferedWriter writer = new BufferedWriter(w)) {
+                writer.write(s);
+            }
+		
+	} 
+	catch (IOException e){
+		JOptionPane.showMessageDialog(EmployeesForm.this, "File error");
+		
+	}

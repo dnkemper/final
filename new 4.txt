@@ -1,0 +1,89 @@
+/*
+tthis class should accomplish:
+1. reading of data from the files into collection lists
+2.writing the data fromthe collection lists back to the files
+
+for now,create an object instance of the form class that you are to create in the next step and set form visible
+ */
+package project;
+
+
+import java.io.FileNotFoundException;
+import java.util.Formatter;
+import java.util.FormatterClosedException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Danielle
+ */
+public class Project {
+
+    private static Formatter output; //outputs text to file
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        openFile();
+        addRecords();
+        closeFile();
+    }
+    //open file employees.txt
+    
+    public static void openFile() {
+        try{
+        output = new Formatter("employees.txt"); //open the file
+    }
+        catch(SecurityException securityException){
+            
+            System.err.println("Write permission denied, Terminating");
+          System.exit(1); 
+        }
+        
+        catch(FileNotFoundException fileNotFoundException){
+            System.err.println("Error opening file. Terminating");
+            System.exit(1); //terminate program
+        }
+    }
+    
+    //add records to file
+    public static void addRecords() {
+        
+        Scanner input = new Scanner(System.in);
+        System.out.printf("%s%s%s%s%s%s%s%s%s?"," First Name, Last Name, EmplyID, SSN, Phone, Email, HireDate, End Date, Gender", "enter end-of-file indicator" );
+    
+        while(input.hasNext())//loop until end of file indicat
+        {
+            try
+            {
+                //output new record to file; assumes valid input
+                output.format("%s%s%s%s%s%s%s%s%s%n", input.next(), input.next(), input.next(), input.next(),input.next(),input.next(),input.next(),input.next(),input.next(),input.next());
+            }
+            catch(FormatterClosedException formatterClosedException){
+                System.err.println("Error writing to file. Terminating");
+                break;
+            }
+            catch (NoSuchElementException elementException)
+            {
+                System.err.println("Invalid output. please try again");
+                input.nextLine(); //discard input so user can try again
+            }
+            System.out.print(" ?");
+        } //end while
+    }//end method add records
+    
+    
+    //close file
+    public static void closeFile() {
+        if (output != null)
+            output.close();
+    }
+    
+    
+}
+       
+    
+

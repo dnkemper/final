@@ -1,0 +1,72 @@
+ try{
+            FileReader fr = new FileReader("Departments.txt");
+            BufferedReader br = new BufferedReader(fr);
+            
+            String departmentsTextFile;
+            while ((departmentsTextFile = br.readLine()) != null){
+                out.println(departmentsTextFile);
+            }
+            br.close();
+            
+            
+        }
+        catch(IOException e){
+            out.println("File not found test");
+        }
+        java.io.File departmentsFile = new java.io.File("Departments.txt");
+        try {
+            Scanner input = new Scanner(departmentsFile);
+            while(input.hasNext()){
+                String num = input.nextLine();//grabs line
+                System.out.println(num);
+                
+            }
+            
+        }
+        catch (FileNotFoundException e){
+        
+        System.err.format("File does not exist");
+    }
+        java.io.File employeesFile = new java.io.File("Employees.txt");
+        try {
+            Scanner input = new Scanner(employeesFile);
+            while(input.hasNext()){
+                String num = input.nextLine();//grabs line
+                System.out.println(num);
+                
+            }
+            
+        }
+        catch (FileNotFoundException e){
+        
+        System.err.format("File does not exist");
+    }
+         java.io.File assignmentsFile = new java.io.File("Assignments.txt");
+        try {
+            Scanner input = new Scanner(assignmentsFile);
+            while(input.hasNext()){
+                String num = input.nextLine();//grabs line
+                System.out.println(num);
+                
+            }
+            
+        }
+        catch (FileNotFoundException e){
+        
+        System.err.format("File does not exist");
+    }
+         java.io.File payrollFile = new java.io.File("Paygrade.txt");
+        try {
+            Scanner input = new Scanner(payrollFile);
+            while(input.hasNext()){
+                String num = input.nextLine();//grabs line
+                System.out.println(num);
+                
+            }
+            
+        }
+        catch (FileNotFoundException e){
+        
+        System.err.format("File does not exist");
+    }
+    }

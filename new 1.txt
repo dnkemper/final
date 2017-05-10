@@ -1,0 +1,110 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package employee;
+
+import java.util.Date;
+
+/**
+ *
+ * @author Danielle
+ */
+public class EmployeeTable {
+
+    private Node head;
+    
+    public EmployeeTable() {  
+    }
+
+    public Node getHead() {
+        return head;
+    }
+
+    public void setHead(Node head) {
+        this.head = head;
+    }
+    
+    public boolean isEmpty() {
+        if(head == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void add(String firstName, String lastName, String SSN, String emplyID, String phone, String email, Date hireDate, Date endDate, String gender) {
+        if(isEmpty()) {
+            head = new Node(firstName, lastName, SSN, emplyID, phone, email, hireDate, endDate, gender); 
+        } else {
+            Node current = head;
+            while(current.getNext() != null) {
+                current = current.getNext();
+            } 
+            current.setNext(new Node(firstName, lastName, SSN, emplyID, phone, email, hireDate, endDate, gender));
+        }
+    }
+        
+     public Integer size() {
+         Integer size = 0;
+         Node current = head;
+         while (current != null) {
+             size++;
+             current = current.getNext();
+         }
+         return size;
+     }
+   public void sortFirstName () { Node p0, p1, p2, p3, p4, p5, p6, p7, p8, p9;
+for (int i=1; i<size(); i++) 
+{ p0 = head; p1 = head; p2 = p1.getNext(); 
+for (int k=1; k<size(); k++) {
+if (p1.getFirstName().compareTo(p2.getFirstName()) > 0) 
+
+{swap(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);}       // actual link changes done here  
+if (k == 1)  p0 = head; 
+else p0 = p0.getNext(); 
+p1 = p0.getNext(); 
+p2 = p1.getNext();
+p3 = p2.getNext();
+p4 = p3.getNext();
+p5 = p4.getNext();
+p6 = p5.getNext();
+p7 = p6.getNext();
+p8 = p7.getNext();
+p9 = p8.getNext();} } 
+}  
+public void sortDescending () { Node p0, p1, p2, p3, p4, p5, p6, p7, p8, p9;
+for (int i=1; i<size(); i++) 
+{ p0 = head; p1 = head; p2 = p1.getNext(); 
+for (int k=1; k<size(); k++) {
+if (p1.getLastName().compareTo(p2.getLastName()) > 0) 
+
+{swap(p0, p1, p2,p3, p4, p5, p6, p7, p8, p9);}
+if (k == 1)  p0 = head; 
+else p0 = p0.getNext(); 
+p1 = p0.getNext(); 
+p2 = p1.getNext();
+p3 = p2.getNext();
+p4 = p3.getNext();
+p5 = p4.getNext();
+p6 = p5.getNext();
+p7 = p6.getNext();
+p8 = p7.getNext();
+p9 = p8.getNext();} } }
+
+public void swap(Node p0, Node p1, Node p2) { Node p3;
+p3 = p2.getNext();  // this processes a new head node 
+if (head == p1) 
+{ head = p2; 
+p2.setNext(p1);
+p1.setNext(p3); 
+return; } 
+p0.setNext(p2);   // this processes a swap anywhere else 
+p2.setNext(p1); p1.setNext(p3); }
+
+   
+}
+    
+    
+

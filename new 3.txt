@@ -1,0 +1,105 @@
+/*
+tthis class should accomplish:
+1. reading of data from the files into collection lists
+2.writing the data fromthe collection lists back to the files
+
+for now,create an object instance of the form class that you are to create in the next step and set form visible
+ */
+package project;
+
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import static java.lang.System.out;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Danielle
+ */
+public class Project {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        try{
+            FileReader fr = new FileReader("Departments.txt");
+            BufferedReader br = new BufferedReader(fr);
+            
+            String departmentsTextFile;
+            while ((departmentsTextFile = br.readLine()) != null){
+                out.println(departmentsTextFile);
+            }
+            br.close();
+            
+            
+        }
+        catch(IOException e){
+            out.println("File not found test");
+        }
+        java.io.File departmentsFile = new java.io.File("Departments.txt");
+        try {
+            Scanner input = new Scanner(departmentsFile);
+            while(input.hasNext()){
+                String num = input.nextLine();//grabs line
+                System.out.println(num);
+                
+            }
+            
+        }
+        catch (FileNotFoundException e){
+        
+        System.err.format("File does not exist");
+    }
+        java.io.File employeesFile = new java.io.File("Employees.txt");
+        try {
+            Scanner input = new Scanner(employeesFile);
+            while(input.hasNext()){
+                String num = input.nextLine();//grabs line
+                System.out.println(num);
+                
+            }
+            
+        }
+        catch (FileNotFoundException e){
+        
+        System.err.format("File does not exist");
+    }
+         java.io.File assignmentsFile = new java.io.File("Assignments.txt");
+        try {
+            Scanner input = new Scanner(assignmentsFile);
+            while(input.hasNext()){
+                String num = input.nextLine();//grabs line
+                System.out.println(num);
+                
+            }
+            
+        }
+        catch (FileNotFoundException e){
+        
+        System.err.format("File does not exist");
+    }
+         java.io.File payrollFile = new java.io.File("Paygrade.txt");
+        try {
+            Scanner input = new Scanner(payrollFile);
+            while(input.hasNext()){
+                String num = input.nextLine();//grabs line
+                System.out.println(num);
+                
+            }
+            
+        }
+        catch (FileNotFoundException e){
+        
+        System.err.format("File does not exist");
+    }
+    }
+    
+}
